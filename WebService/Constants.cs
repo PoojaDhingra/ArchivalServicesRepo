@@ -38,5 +38,7 @@ namespace WebService
         internal const string CONTRIBUTE = "1073741827";
         internal const string READ = "1073741826";
 
+        internal const string TEST = "testentry";
+
     }
 }
