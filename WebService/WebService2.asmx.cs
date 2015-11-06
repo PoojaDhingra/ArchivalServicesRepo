@@ -118,7 +118,7 @@ namespace WebService
             return key;
         }
 
-        [WebMethod]
+        
         public string HelloWorld1()
         {
             string data = string.Empty;

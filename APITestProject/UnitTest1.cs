@@ -9,9 +9,7 @@ namespace APITestProject
         [TestMethod]
         public void TestMethod1()
         {
-            WebService2 ws = new WebService2();
-            ws.HelloWorld1();           
-        }
+       }
      
     }
 }
