@@ -8,10 +8,6 @@ namespace WebService
     public class Constants
     {
         internal const string KeywordApi = "_api";
-        //internal const string NemndContributorGroup = "KJ.ND.App.SP.SaksbehandlerDisiplinærnemnd.Contribute";
-        //internal const string UtvalgContributorGroup = "KJ.ND.App.SP.SaksbehandlerDisiplinærutvalg.Contribute";
-        //internal const string UtvalgOwnerGroup = "KJ.ND.App.SP.SaksbehandlerDisiplinærutvalg.Owner";
-
         internal const string AllContributeGroup = "Advokatklageordningen-Alle-Bidra";
         internal const string UtvalgContributeGroup = "Advokatklageordningen-Utvalg-Bidra";
         internal const string NemndContributeGroup = "Advokatklageordningen-Nemnd-Bidra";
@@ -19,7 +15,6 @@ namespace WebService
         internal const string NemndReaderGroup = "Advokatklageordningen-Nemnd-Lese";
         internal const string UtvalgReaderGroup = "Advokatklageordningen-Utvalg-Lese";
         internal const string OwnersGroup = "Advokatklageordningen-Owners";
-
 
         internal const string LibraryName = "Saksdokumenter";
         internal const string NemndResource = "nemnd";
