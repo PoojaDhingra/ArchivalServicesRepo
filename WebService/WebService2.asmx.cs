@@ -95,7 +95,7 @@ namespace WebService
 
                 responseReader.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //Console.Out.WriteLine(e.Message); Console.ReadLine();
             }
@@ -105,10 +105,7 @@ namespace WebService
         [WebMethod]
         public string Regular(string input)
         {          
-            string key = string.Empty;
-            // Here we call Regex.Match.
-      //      Match match = Regex.Match(input, @"ADOK-([0-9\-]+)\-([0-9\-]+)$",RegexOptions.IgnoreCase);
-
+            string key = string.Empty;        
             Regex regex = new Regex(@"^\d$");
 
             Match match = Regex.Match(input, @"^\d$", RegexOptions.IgnoreCase);
@@ -151,7 +148,7 @@ namespace WebService
 
                 responseReader.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //Console.Out.WriteLine(e.Message); Console.ReadLine();
             }
@@ -730,7 +727,7 @@ namespace WebService
 
                 responseReader.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //Console.Out.WriteLine(e.Message); Console.ReadLine();
             }
@@ -922,10 +919,7 @@ namespace WebService
             string besultningServerRelativeUrl = relativeUrl + "Dokumenter/Saker/" + caseId + "/Beslutning";
             var besultningFolderId = GetFolderId(besultningServerRelativeUrl, rc);
 
-            string result = string.Empty;
-            string listTitle = "Dokumenter";
-            string listItemId = "";
-            RestRequest Request; 
+            string result = string.Empty;                 
             string removeExistingPermissions = string.Empty;
           
             if (folderName.ToLower().Equals(Constants.UtvalgResource))
