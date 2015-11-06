@@ -7,6 +7,7 @@ namespace WebService
 {
     public class testFile
     {
-        internal const string KeywordApi = "_api";        
+        internal const string KeywordApi = "_api";
+        internal const string Test = "test";      
     }
 }
