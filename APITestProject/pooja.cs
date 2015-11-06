@@ -9,5 +9,6 @@ namespace APITestProject
     class pooja
     {
         string pooja = "pooja";
+        string pooja1 = "pooja1";
     }
 }
