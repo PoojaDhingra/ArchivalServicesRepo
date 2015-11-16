@@ -951,6 +951,157 @@ namespace WebService
                 return "Some issue occurred while deleting groups";
         }
 
+        // [WebMethod]
+        //public string CopyCaseDocuments(int sourceCaseId, int destinationCaseId, string baseSiteUrl)//string folderName
+        //{
+        //    Uri uri = new Uri(baseSiteUrl);
+        //    string user = "asharma"; string password = "span@123"; string domain = "SPIVPC";
+        //    string relativeUrl = uri.AbsolutePath;
+
+        //    if (baseSiteUrl.EndsWith("/", StringComparison.Ordinal))
+        //        baseSiteUrl += Constants.KeywordApi;
+        //    else
+        //        baseSiteUrl += "/" + Constants.KeywordApi;
+
+        //    string formDigestValue, libraryName = string.Empty, caseFolderName = string.Empty;
+        //    var restClient = RestClient(baseSiteUrl, user, password,
+        //        out formDigestValue);
+
+           
+        //        libraryName = DocumentLibraryNo;
+        //        caseFolderName = CaseFolderNameNo;
+            
+
+        //    //string folderServerRelativeUrl = string.Concat(relativeUrl, libraryName, "/", caseFolderName, "/@@/", folderName),
+        //    string baseServerRelativeUrl = string.Concat(relativeUrl, libraryName, "/", caseFolderName, "/@@"),
+        //           sourceCaseFolderServerRelativeUrl = baseServerRelativeUrl.Replace("@@", sourceCaseId.ToString()),
+        //           destCaseFolderServerRelativeUrl = baseServerRelativeUrl.Replace("@@", destinationCaseId.ToString());
+
+        //    List<string> folderToCopyData = new List<string>
+        //    {
+        //       Constants.TempSaksdokumenter,Constants.TempBeslutning
+        //    };
+        //    string caseResult = string.Empty;
+        //    string resultData = string.Empty;
+        //    ItemDetailModel srcCaseFolderDetailVal = GetItemDetailsByServerRelativeUrl(sourceCaseFolderServerRelativeUrl, restClient);
+        //    if (!ReferenceEquals(srcCaseFolderDetailVal, null))
+        //    {
+        //        string srcURL = sourceCaseFolderServerRelativeUrl;
+        //        string destURL = destCaseFolderServerRelativeUrl;
+        //        ItemDetailModel destCaseFolderDetailVal = GetItemDetailsByServerRelativeUrl(destCaseFolderServerRelativeUrl, restClient);
+        //        if (!ReferenceEquals(destCaseFolderDetailVal, null))
+        //        {
+        //            foreach (string folderName in folderToCopyData)
+        //            {
+        //                srcURL = sourceCaseFolderServerRelativeUrl + "/" + folderName;
+        //                ItemDetailModel srcCaseFolderDetailVal2 = GetItemDetailsByServerRelativeUrl(srcURL, restClient);
+        //                if (!ReferenceEquals(srcCaseFolderDetailVal2, null))
+        //                {
+        //                    destURL = destCaseFolderServerRelativeUrl + "/" + folderName;
+        //                    ItemDetailModel destCaseFolderDetailVal2 = GetItemDetailsByServerRelativeUrl(destURL, restClient);
+        //                    if (!ReferenceEquals(destCaseFolderDetailVal2, null))
+        //                    {
+        //                        RestRequest request = null;
+        //                        request = new RestRequest("web/GetFolderByServerRelativeUrl('" + srcURL + "')/Files?$select=Name", Method.GET)
+        //                        {
+        //                            RequestFormat = DataFormat.Json
+        //                        };
+        //                        request.AddHeader(Accept, AcceptHeaderVal);
+
+        //                        IRestResponse response = restClient.Execute(request);
+        //                        string result = response.Content;
+
+        //                        JObject jobj = JObject.Parse(result);
+        //                        var results = jobj["d"]["results"];
+
+        //                        if (!ReferenceEquals(results, null) && results.Any())
+        //                        {
+        //                            List<string> caseFileNameCollection = (from value in results.Children()
+        //                                                                   select Convert.ToString(value["Name"])
+        //                                                                  ).ToList();
+
+        //                            int caseFileNameCount = caseFileNameCollection.Count, index;
+
+        //                            for (index = 0; index < caseFileNameCount; index++)
+        //                            {
+        //                                string srcUrl = srcURL, destUrl = destURL;
+        //                                srcUrl += "/" + caseFileNameCollection[index];
+        //                                destUrl += "/" + caseFileNameCollection[index];
+
+        //                                request =
+        //                                    new RestRequest("web/GetFileByServerRelativeUrl('" + srcUrl + "')/copyto(strnewurl='" + destUrl + "', boverwrite = true)", Method.POST)
+        //                                    {
+        //                                        RequestFormat = DataFormat.Json
+        //                                    };
+        //                                request.AddHeader(Accept, AcceptHeaderVal);
+        //                                request.AddHeader(RequestDigest, formDigestValue);
+        //                                IRestResponse caseDocumentresponse = restClient.Execute(request);
+
+        //                                JObject jobject = JObject.Parse(caseDocumentresponse.Content);
+        //                                bool isResponseExists = jobject["d"]["CopyTo"].HasValues;
+        //                                if (!isResponseExists)
+        //                                {
+        //                                    caseResult += string.Empty;
+        //                                }
+        //                            }
+        //                            if (resultData.Equals("Case Documents copied successfully"))
+        //                            {
+        //                                resultData = string.IsNullOrEmpty(caseResult)
+        //                                                            ? "Case Documents copied successfully"
+        //                                                            : "sError- Try again";
+        //                            }
+        //                            else
+        //                            {
+        //                                resultData = string.IsNullOrEmpty(caseResult)
+        //                                                            ? resultData + "Case Documents copied successfully"
+        //                                                            : resultData + "Error- Try again";
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            if (resultData.Equals("No Documents"))
+        //                            {
+        //                                resultData = "No Documents";
+        //                            }
+        //                            else
+        //                            {
+        //                                resultData += "No Documents";
+        //                            }
+        //                            // return "{\"response\":\"No Documents\"}";
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        // return "{\"response\":\"Folder Does not exists under Destination Case\"}";
+        //                        resultData += "Folder Does not exists under Destination Case";
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    //  return "{\"response\":\"Folder Does not exists under Source Case\"}";
+        //                    resultData += "Folder Does not exists under Source Case";
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            //return "{\"response\":\"Destination Case Folder Does not exists\"}";
+        //            resultData += "Destination Case Folder Does not exists";
+        //        }
+        //    }
+        //    else
+        //    {
+        //        resultData += "Source Case Folder Does not exists";
+        //    }
+
+        //    //return string.IsNullOrEmpty(caseResult)
+        //    //                            ? "{\"response\":\"Case Documents copied successfully\"}"
+        //    //                            : "{\"response\":\"Error- Try again\"}";
+        //    //      return "{\"response\":\"Source Case Folder Does not exists\"}";
+        //    resultData = "{\"response\":\"" + resultData + "\"}";
+        //    return resultData;
+        //}
+
         public class ArchiveCaseFileModel
         {
             public string FileName { get; set; }
